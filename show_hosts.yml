@@ -1,4 +1,4 @@
-- name: Test the inventory script
+- name: Show hosts in Azure Cloud
   hosts: azure
   connection: local
   gather_facts: no

@@ -1,0 +1,9 @@
+---
+- hosts: localhost
+  connection: local
+  tasks:
+    - name: Deallocate
+      azure_rm_virtualmachine:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vm_name }}"
+        allocated: no

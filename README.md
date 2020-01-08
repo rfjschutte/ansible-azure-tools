@@ -15,6 +15,12 @@ ansible-playbook -i ./azure_rm.py show_hosts.yml
 ansible-playbook -i ./azure_rm.py create_host.yml -e "resource_group=rg_ansible_test vm_name=test123"
 ```
 
+***Show info about host***
+
+```bash
+./azure_rm.py --host testvm --resource-groups=rg_ansible_test --pretty
+```
+
 ***Shutdown host***
 
 ```bash

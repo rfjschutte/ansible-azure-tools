@@ -54,11 +54,15 @@
       resource_group: "{{ resource_group }}"
       name: "{{ vm_name }}"
       vm_size: Standard_DS1_v2
-      admin_username: admin
-      admin_password: SuperPassw0rd!
+      admin_username: "{{ user_name }}"
+      admin_password: ih@hH;r\({DK>83YV
+      ssh_password_enabled: false
+      ssh_public_keys:
+        - path: '/home/{{ user_name }}/.ssh/authorized_keys'
+          key_data: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"  
       network_interfaces: "{{ vm_name }}"
       image:
         offer: CentOS
         publisher: OpenLogic
-        sku: '7.5'
+        sku: '7.7'
         version: latest

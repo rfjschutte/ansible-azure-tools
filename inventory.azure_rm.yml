@@ -1,6 +1,32 @@
 plugin: azure_rm
 
-include_vm_resource_groups:
-- rg_rschutte
+#include_vm_resource_groups:
+        #- rg_ansible_test
 
-auth_source: auto
+keyed_groups:
+
+# Generate 'tag_(tag name)_(tag value)' for each tag on a VM.
+- prefix: tag
+  key: tags
+
+# Generate 'loc_(location name)', depending on the VM's location
+- prefix: loc
+  key: location
+
+# Generate rg_(resource_group)
+- prefix: rg
+  key: resource_group
+
+# Generate os_type_(os_type)
+- prefix: os
+  key: os_disk.operating_system_type
+
+# Generate vm_size_(vm_size)
+- prefix: vm_size
+  key: virtual_machine_size
+
+# Generate 'tag_owner_(owner value)'
+- prefix: tag_owner
+  key: tags.owner | default('none')
+  
+  auth_source: auto

@@ -1,5 +1,5 @@
 - name: Show hosts in Azure Cloud
-  hosts: azure
+  hosts: all
   connection: local
   gather_facts: no
   tasks:
